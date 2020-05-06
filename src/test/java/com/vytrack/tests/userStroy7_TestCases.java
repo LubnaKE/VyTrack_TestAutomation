@@ -74,7 +74,7 @@ public class userStroy7_TestCases {
         WebElement vehicleContracts = driver.findElement(By.xpath("//span[contains(text(),'Vehicle Contracts')]"));
         Assert.assertTrue(vehicleContracts.isDisplayed(),"Fleet tab dropdown displayed");
 
-        // Click vehicleContracts and Verify page can accesseable from authorized user
+        // Click vehicleContracts
         vehicleContracts.click();
         loadingExplicitWait();
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
@@ -83,6 +83,7 @@ public class userStroy7_TestCases {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.titleIs("All - Vehicle Contract - Entities - System - Car - Entities - System"));
 
+        //Verify page can accesseable from authorized user
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
 
