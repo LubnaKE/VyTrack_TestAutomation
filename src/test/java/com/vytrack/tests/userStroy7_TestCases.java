@@ -58,7 +58,7 @@ public class userStroy7_TestCases {
 
 
     @Test (dataProvider = "UserLoginPreConditions")
-    public void TestCase1_withAuthorizedUser(String username , String password){
+    public void TestCase1_withAuthorizedUser(String username , String password) throws InterruptedException {
         // Login Web PAge
         driver.findElement(By.id("prependedInput")).sendKeys(username);
         driver.findElement(By.id("prependedInput2")).sendKeys(password);
@@ -78,6 +78,11 @@ public class userStroy7_TestCases {
         vehicleContracts.click();
         loadingExplicitWait();
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
+
+        // wait for title update!!
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.titleIs("All - Vehicle Contract - Entities - System - Car - Entities - System"));
+
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
 
@@ -99,11 +104,12 @@ public class userStroy7_TestCases {
         // Verify vehicleContracts is displayed from user
         WebElement vehicleContracts = driver.findElement(By.xpath("//span[contains(text(),'Vehicle Contracts')]"));
         Assert.assertTrue(vehicleContracts.isDisplayed(),"Fleet tab dropdown displayed");
+        String exptitle= driver.getTitle();
 
         // Click vehicleContracts and Verify page can NOT accesseable from UNauthorized user
         vehicleContracts.click();
         loadingExplicitWait();
-        String expectedTitle = "Dashboard";
+        String expectedTitle = exptitle;
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
 
@@ -120,6 +126,7 @@ public class userStroy7_TestCases {
         WebElement loading = driver.findElement(By.cssSelector(".loader-mask  .loader-frame"));
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.invisibilityOfAllElements(loading));
+
     }
 
 }
