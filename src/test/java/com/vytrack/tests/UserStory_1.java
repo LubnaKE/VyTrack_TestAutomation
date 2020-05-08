@@ -37,7 +37,8 @@ public class UserStory_1 {
     @DataProvider(name = "UserLoginPreConditions")
     public Object[][] loginData(Method testCase){    // username + password sıralamasını kullan!!
 
-            return new Object[][]{
+
+        return new Object[][]{
                     {"user7" , "UserUser123"}/*,
                     {"user8" , "UserUser123"},
                     {"user9" , "UserUser123"}*/ };
@@ -97,6 +98,8 @@ public class UserStory_1 {
         String pageHead= driver.findElement(By.tagName("h5")).getText();
 
         Assert.assertEquals(pageHead,"General Information");
+
+        driver.findElement(By.cssSelector(".pull-left.pull-left-extra")
 
 
         //Verify AC-3
