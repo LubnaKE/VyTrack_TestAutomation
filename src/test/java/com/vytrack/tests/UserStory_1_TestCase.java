@@ -6,6 +6,9 @@ import com.vytrack.utilities.LoadingWait;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +18,7 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-public class UserStory_1 {
+public class UserStory_1_TestCase {
 
     WebDriver driver;
 
@@ -69,7 +72,8 @@ public class UserStory_1 {
 
         Assert.assertNotEquals(dashboardTitle,moduleTitle);
 
-        //Verify AC-1
+
+        //*****************  Verify AC-1  *****************
         String expectedTitle = "Car - Entities - System - Car - Entities - System";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
@@ -79,11 +83,12 @@ public class UserStory_1 {
 
         Assert.assertEquals(actualInfo,expectedInfo);
 
-        //Verify AC-2
-        /*
+
+        //*****************  Verify AC-2  *****************
+        /* If u want to usespecific car use like tihs!! But it is not static and strong way!
         driver.findElement(By.xpath("//td[contains(text(),'14EF6562')]")).click();
         LoadingWait.ExplicitWait(driver);
-         */
+
         // different way
         String plate = "14EF6562";
         driver.findElement(By.xpath("//td[contains(text(),'"+plate+"')]")).click();
@@ -93,18 +98,65 @@ public class UserStory_1 {
 
         expectedTitle = "14EF6562 Tera Hermiston I Nijat did this :)New Aimee 2009 silver compact,sedan - Car - Entities - System - Car - Entities - System";
         actualTitle = driver.getTitle();
-       // Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertEquals(actualTitle,expectedTitle);
+         */
+        // select and check/test the first car on table via its plate
+        WebElement firstRow_Column = driver.findElement(By.xpath("(//tbody//td)[1]"));
+        String firstRowPlate = firstRow_Column.getText();
+        firstRow_Column.click();
+        LoadingWait.ExplicitWait(driver);
 
+        String actualPlate = driver.findElement(By.xpath("(//h5/../div/div)[1]")).getText();  //chil -- parent -- child
+        Assert.assertEquals(actualPlate,firstRowPlate);
+
+        // and also Verify General info page
         String pageHead= driver.findElement(By.tagName("h5")).getText();
-
         Assert.assertEquals(pageHead,"General Information");
 
-        driver.findElement(By.cssSelector(".pull-left.pull-left-extra")
+
+        //*****************  Verify AC-3  *****************
+
+        // Click on add event button
+        //Thread.sleep(2000);
+        //driver.findElement(By.xpath("(//a[@href=\"javascript: void(0);\"])[2]")).click();
+        driver.findElement(By.partialLinkText("Add Event")).click(); //ATTENTION, direk link ismi kullanma, boşluk vb var!!
+        LoadingWait.ExplicitWait(driver);
+
+        // add event
+        String EventTitle = "Automation Event By Tlh";
+        driver.findElement(By.name("oro_calendar_event_form[title]")).sendKeys(EventTitle);
+        // switch iframe
+        driver.switchTo().frame(0);
+        driver.findElement(By.id("tinymce")).sendKeys("FleetModule Vehicle Event/UserStory-1");
+        driver.switchTo().defaultContent();
+        WebElement flashMessage= driver.findElement(By.xpath("//div[@class='flash-messages-holder']"));
+
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
+
+        // add wait for visibilty of flash message
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOf(flashMessage));
+       // System.out.println("flash Message text: " +flashMessage.getText());
+        Assert.assertTrue(flashMessage.isDisplayed(), "Add event message is displayed");
+
+        //verify that event can see in activty tab
+        driver.navigate().refresh();  // after refrsh page we can see new event!!!!!!
+        LoadingWait.ExplicitWait(driver);
+        String actualEventTitle= driver.findElement(By.tagName("strong")).getText();
+        Assert.assertEquals(actualEventTitle,EventTitle);
 
 
-        //Verify AC-3
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("(//a[@href=\"javascript: void(0);\"])[2]")).click();
+
+        //*****************  Verify AC-4  *****************
+
+        driver.navigate().back();
+        LoadingWait.ExplicitWait(driver);
+        driver.findElement(By.xpath("(//*[@class='fa-refresh'])[2]")).click();
+        LoadingWait.ExplicitWait(driver);
+        // bunun testi nasıl olur bi açıklama yok ! istersen settings den id ekle sonra restele eski haline döner
+
+
+
 
 
 

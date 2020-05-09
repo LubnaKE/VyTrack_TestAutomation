@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-public class userStroy7_TestCases {
+public class UserStroy_7_TestCase {
 
     // VYTruck Project User Story-7 (EU3-73, EU3-74) Test Cases automation Tests:
 
