@@ -128,12 +128,13 @@ public class UserStory_1_TestCase {
         // switch iframe
         driver.switchTo().frame(0);
         driver.findElement(By.id("tinymce")).sendKeys("FleetModule Vehicle Event/UserStory-1");
-        driver.switchTo().defaultContent();
-        WebElement flashMessage= driver.findElement(By.xpath("//div[@class='flash-messages-holder']"));
 
+        // switch back and click submit
+        driver.switchTo().defaultContent();
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         // add wait for visibilty of flash message
+        WebElement flashMessage= driver.findElement(By.xpath("//div[@class='flash-messages-holder']"));
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOf(flashMessage));
        // System.out.println("flash Message text: " +flashMessage.getText());
