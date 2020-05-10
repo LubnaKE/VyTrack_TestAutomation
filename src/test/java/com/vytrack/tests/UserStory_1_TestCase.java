@@ -1,7 +1,9 @@
 package com.vytrack.tests;
 
-import com.vytrack.utilities.DriverLogin;
-import com.vytrack.utilities.FleetMenuTab;
+import com.vytrack.pages.LoginPage;
+import com.vytrack.pages.FleetMenuTab;
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.LoadingWait;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -24,7 +26,9 @@ public class UserStory_1_TestCase {
 
     @BeforeMethod
     public void before(){
-        driver= WebDriverFactory.getDriver("chrome");
+       // driver= WebDriverFactory.getDriver("chrome");
+      //  driver= WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
+        driver= Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://qa1.vytrack.com/user/login");
@@ -37,20 +41,21 @@ public class UserStory_1_TestCase {
         driver.quit();
     }
 
+    /*
     @DataProvider(name = "UserLoginPreConditions")
     public Object[][] loginData(Method testCase){    // username + password sıralamasını kullan!!
 
 
         return new Object[][]{
-                    {"user7" , "UserUser123"}/*,
+                    {"user7" , "UserUser123"},
                     {"user8" , "UserUser123"},
-                    {"user9" , "UserUser123"}*/ };
+                    {"user9" , "UserUser123"}};
     }
+    */
 
 
-
-    @Test (dataProvider = "UserLoginPreConditions" )
-    public void UserStory_1_Test(String username, String password) throws InterruptedException {
+    @Test //(dataProvider = "UserLoginPreConditions" ) (String username, String password)
+    public void UserStory_1_Test() throws InterruptedException {
     // User Story 1: As a truck driver I should be able to access Vehicle under Fleet module.
     // Acceptance Criteria
 //        1.Verify that truck driver should be able to see all Vehicle information once navigate to Vehicle page.
@@ -59,7 +64,7 @@ public class UserStory_1_TestCase {
 //        4.Verify that Truck driver can reset the Grid by click on Grid setting
 
         // Driver login home page
-        DriverLogin.driverLogin(driver,username,password);
+        LoginPage.driverLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
         String dashboardTitle= driver.getTitle();
 
         // waite for loading  circle
@@ -155,11 +160,6 @@ public class UserStory_1_TestCase {
         driver.findElement(By.xpath("(//*[@class='fa-refresh'])[2]")).click();
         LoadingWait.ExplicitWait(driver);
         // bunun testi nasıl olur bi açıklama yok ! istersen settings den id ekle sonra restele eski haline döner
-
-
-
-
-
 
 
     }

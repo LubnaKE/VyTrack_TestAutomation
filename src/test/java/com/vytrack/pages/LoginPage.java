@@ -1,4 +1,4 @@
-package com.vytrack.utilities;
+package com.vytrack.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-public class DriverLogin {
+public class LoginPage {
 
    public static void driverLogin(WebDriver driver, String username, String password){
 
