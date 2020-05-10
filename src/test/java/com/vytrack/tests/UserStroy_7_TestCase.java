@@ -1,5 +1,7 @@
 package com.vytrack.tests;
 
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.WebDriverFactory;
 import oracle.jrockit.jfr.ActiveSettingEvent;
 import org.openqa.selenium.By;
@@ -25,7 +27,10 @@ public class UserStroy_7_TestCase {
 
     @BeforeMethod
     public void before(){
-        driver= WebDriverFactory.getDriver("chrome");
+        // driver= WebDriverFactory.getDriver("chrome");
+        //driver= WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
+        driver=null;
+        driver= Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://qa1.vytrack.com/user/login");
@@ -33,35 +38,46 @@ public class UserStroy_7_TestCase {
 
     @AfterMethod
     public void after() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.quit();
+       // Thread.sleep(2000);
+      //  driver.quit();  // manul quit yaparsak 2. methoda gecmez Dİkkat!!!
+        Driver.closeDriver();
+
     }
 
-    @DataProvider (name = "UserLoginPreConditions")
-    public Object[][] loginData(Method testCase){    // username + password sıralamasını kullan!!
-        if(testCase.getName().equals("TestCase1_withAuthorizedUser")){
-            return new Object[][]{
-                    {"storemanager55","UserUser123"},
-                    {"storemanager56","UserUser123"},
-                    {"salesmanager107","UserUser123"},
-                    {"salesmanager108","UserUser123"},
-                    {"salesmanager109","UserUser123"} };
-        }
-        if (testCase.getName().equals("TestCase2_withUnAuthorizedUser")){
-            return new Object[][]{
-                    {"user7" , "UserUser123"},
-                    {"user8" , "UserUser123"},
-                    {"user9" , "UserUser123"} };
-        }
-       return null;
-    }
+//
+//    @DataProvider (name = "UserLoginPreConditions")
+//    public Object[][] loginData(Method testCase){    // username + password sıralamasını kullan!!
+//        if(testCase.getName().equals("TestCase1_withAuthorizedUser")){
+//            /*return new Object[][]{
+//                    {"storemanager55","UserUser123"},
+//                    {"storemanager56","UserUser123"},
+//                    {"salesmanager107","UserUser123"},
+//                    {"salesmanager108","UserUser123"},
+//                    {"salesmanager109","UserUser123"} };*/
+//            return new Object[][]{
+//                    {ConfigurationReader.get("storemanager_username")},  // salesmanager icin ayrıca tanımla!!
+//                    {ConfigurationReader.get("storemanager_password")}
+//            };
+//        }
+//        if (testCase.getName().equals("TestCase2_withUnAuthorizedUser")){
+//           /* return new Object[][]{
+//                    {"user7" , "UserUser123"},
+//                    {"user8" , "UserUser123"},
+//                    {"user9" , "UserUser123"} };*/
+//            return new Object[][]{
+//                    {ConfigurationReader.get("driver_username")},
+//                    {ConfigurationReader.get("driver_password")}
+//            };
+//        }
+//       return null;
+//    }
 
 
-    @Test (dataProvider = "UserLoginPreConditions")
-    public void TestCase1_withAuthorizedUser(String username , String password) throws InterruptedException {
+    @Test // (dataProvider = "UserLoginPreConditions") (String username , String password)
+    public void TestCase1_withAuthorizedUser() throws InterruptedException {
         // Login Web PAge
-        driver.findElement(By.id("prependedInput")).sendKeys(username);
-        driver.findElement(By.id("prependedInput2")).sendKeys(password);
+        driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("storemanager_username"));
+        driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("storemanager_password"));
         driver.findElement(By.id("_submit")).click();
         loadingExplicitWait();
 
@@ -89,11 +105,11 @@ public class UserStroy_7_TestCase {
 
     }
 
-    @Test (dataProvider = "UserLoginPreConditions")
-    public void TestCase2_withUnAuthorizedUser(String username , String password){
+    @Test //(dataProvider = "UserLoginPreConditions")   (String username , String password)
+    public void TestCase2_withUnAuthorizedUser(){
         // Login Web PAge
-        driver.findElement(By.id("prependedInput")).sendKeys(username);
-        driver.findElement(By.id("prependedInput2")).sendKeys(password);
+        driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
+        driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("driver_password"));
         driver.findElement(By.id("_submit")).click();
         loadingExplicitWait();
 
