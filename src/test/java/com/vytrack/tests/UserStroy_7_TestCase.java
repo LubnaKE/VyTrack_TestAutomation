@@ -2,6 +2,7 @@ package com.vytrack.tests;
 
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.SetAndClosePage;
 import com.vytrack.utilities.WebDriverFactory;
 import oracle.jrockit.jfr.ActiveSettingEvent;
 import org.openqa.selenium.By;
@@ -19,10 +20,10 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-public class UserStroy_7_TestCase {
+public class UserStroy_7_TestCase extends SetAndClosePage {
 
     // VYTruck Project User Story-7 (EU3-73, EU3-74) Test Cases automation Tests:
-
+/*
     WebDriver driver;
 
     @BeforeMethod
@@ -43,7 +44,7 @@ public class UserStroy_7_TestCase {
         Driver.closeDriver();
 
     }
-
+*/
 //
 //    @DataProvider (name = "UserLoginPreConditions")
 //    public Object[][] loginData(Method testCase){    // username + password sıralamasını kullan!!

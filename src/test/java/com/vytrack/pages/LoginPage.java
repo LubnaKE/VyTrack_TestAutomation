@@ -17,5 +17,4 @@ public class LoginPage {
         driver.findElement(By.id("_submit")).click();
     }
 
-
 }
