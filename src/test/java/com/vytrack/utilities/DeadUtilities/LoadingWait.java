@@ -1,4 +1,4 @@
-package com.vytrack.utilities;
+package com.vytrack.utilities.DeadUtilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

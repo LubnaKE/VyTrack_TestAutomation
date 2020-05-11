@@ -1,18 +1,16 @@
-package com.vytrack.tests;
+package com.vytrack.tests.tasks;
 
 import com.vytrack.pages.LoginPage;
 import com.vytrack.pages.FleetMenuTab;
 import com.vytrack.utilities.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import com.vytrack.utilities.SetAndClosePage;
+import com.vytrack.pages.SetAndClosePage;
 
 public class UserStory_1_TestCase extends SetAndClosePage{
 
@@ -62,11 +60,13 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         String dashboardTitle= driver.getTitle();
 
         // waite for loading  circle
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
 
         // click module and wait for loading  circle and verify title change
         FleetMenuTab.clickModule(driver,"Vehicle");
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         String moduleTitle = driver.getTitle();
 
         Assert.assertNotEquals(dashboardTitle,moduleTitle);
@@ -103,7 +103,8 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         WebElement firstRow_Column = driver.findElement(By.xpath("(//tbody//td)[1]"));
         String firstRowPlate = firstRow_Column.getText();
         firstRow_Column.click();
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
 
         String actualPlate = driver.findElement(By.xpath("(//h5/../div/div)[1]")).getText();  //chil -- parent -- child
         Assert.assertEquals(actualPlate,firstRowPlate);
@@ -119,7 +120,8 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         //Thread.sleep(2000);
         //driver.findElement(By.xpath("(//a[@href=\"javascript: void(0);\"])[2]")).click();
         driver.findElement(By.partialLinkText("Add Event")).click(); //ATTENTION, direk link ismi kullanma, boşluk vb var!!
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
 
         // add event
         String EventTitle = "Automation Event By Tlh";
@@ -134,14 +136,16 @@ public class UserStory_1_TestCase extends SetAndClosePage{
 
         // add wait for visibilty of flash message
         WebElement flashMessage= driver.findElement(By.xpath("//div[@class='flash-messages-holder']"));
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOf(flashMessage));
+        //WebDriverWait wait = new WebDriverWait(driver,10);
+        //wait.until(ExpectedConditions.visibilityOf(flashMessage));
+        ExplicitWaits.flashMessageWait(driver,flashMessage);
        // System.out.println("flash Message text: " +flashMessage.getText());
         Assert.assertTrue(flashMessage.isDisplayed(), "Add event message is displayed");
 
         //verify that event can see in activty tab
         driver.navigate().refresh();  // after refrsh page we can see new event!!!!!!
-        LoadingWait.ExplicitWait(driver);
+       // LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         String actualEventTitle= driver.findElement(By.tagName("strong")).getText();
         Assert.assertEquals(actualEventTitle,EventTitle);
 
@@ -150,9 +154,11 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         //*****************  Verify AC-4  *****************
 
         driver.navigate().back();
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         driver.findElement(By.xpath("(//*[@class='fa-refresh'])[2]")).click();
-        LoadingWait.ExplicitWait(driver);
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         // bunun testi nasıl olur bi açıklama yok ! istersen settings den id ekle sonra restele eski haline döner
 
 

@@ -1,6 +1,6 @@
 package com.vytrack.utilities;
 
-public class WaitStatic {
+public class StaticWaits {
 
     public static void waitLine(int seconds) {
         try {

@@ -1,24 +1,14 @@
-package com.vytrack.tests;
+package com.vytrack.tests.tasks;
 
-import com.vytrack.utilities.ConfigurationReader;
-import com.vytrack.utilities.Driver;
-import com.vytrack.utilities.SetAndClosePage;
-import com.vytrack.utilities.WebDriverFactory;
-import oracle.jrockit.jfr.ActiveSettingEvent;
+import com.vytrack.pages.LoginPage;
+import com.vytrack.pages.SetAndClosePage;
+import com.vytrack.utilities.*;
+import com.vytrack.utilities.DeadUtilities.LoadingWait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Method;
-import java.util.concurrent.TimeUnit;
 
 public class UserStroy_7_TestCase extends SetAndClosePage {
 
@@ -77,10 +67,12 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
     @Test // (dataProvider = "UserLoginPreConditions") (String username , String password)
     public void TestCase1_withAuthorizedUser() throws InterruptedException {
         // Login Web PAge
-        driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("storemanager_username"));
+       /* driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("storemanager_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("storemanager_password"));
-        driver.findElement(By.id("_submit")).click();
-        loadingExplicitWait();
+        driver.findElement(By.id("_submit")).click();*/
+        LoginPage.driverLogin(driver,ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
 
         //Move to mouse to Fleet Tab
         WebElement fleetTab = driver.findElement(By.xpath("//span[contains(text(),'Fleet')]"));
@@ -89,17 +81,19 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
 
         // Verify vehicleContracts is displayed from user
         WebElement vehicleContracts = driver.findElement(By.xpath("//span[contains(text(),'Vehicle Contracts')]"));
-        Assert.assertTrue(vehicleContracts.isDisplayed(),"Fleet tab dropdown displayed");
+        //Assert.assertTrue(vehicleContracts.isDisplayed(),"Fleet tab dropdown displayed");
 
         // Click vehicleContracts
         vehicleContracts.click();
-        loadingExplicitWait();
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
 
         // wait for title update!!
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.titleIs("All - Vehicle Contract - Entities - System - Car - Entities - System"));
-
+       /* WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.titleIs("All - Vehicle Contract - Entities - System - Car - Entities - System"));*/
+       //TitleWait.ExplicitWait(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System");
+        ExplicitWaits.titleWait(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System");
         //Verify page can accesseable from authorized user
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
@@ -109,10 +103,12 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
     @Test //(dataProvider = "UserLoginPreConditions")   (String username , String password)
     public void TestCase2_withUnAuthorizedUser(){
         // Login Web PAge
-        driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
+        /*driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("driver_password"));
-        driver.findElement(By.id("_submit")).click();
-        loadingExplicitWait();
+        driver.findElement(By.id("_submit")).click();*/
+        LoginPage.driverLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
 
         //Move to mouse to Fleet Tab
         WebElement fleetTab = driver.findElement(By.xpath("//span[contains(text(),'Fleet')]"));
@@ -126,7 +122,8 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
 
         // Click vehicleContracts and Verify page can NOT accesseable from UNauthorized user
         vehicleContracts.click();
-        loadingExplicitWait();
+        //LoadingWait.ExplicitWait(driver);
+        ExplicitWaits.loadingWait(driver);
         String expectedTitle = exptitle;
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
@@ -139,12 +136,13 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
 
     }
 
-    public void loadingExplicitWait(){
+/*  // artık buna gerek yok,beklemeyi utilities e koyduk!!
+    public void loadingExplicitWait(WebDriver driver){
         // this method waits after every click for loading bar!!
         WebElement loading = driver.findElement(By.cssSelector(".loader-mask  .loader-frame"));
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.invisibilityOfAllElements(loading));
 
     }
-
+*/
 }
