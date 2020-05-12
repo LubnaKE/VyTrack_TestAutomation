@@ -70,7 +70,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
        /* driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("storemanager_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("storemanager_password"));
         driver.findElement(By.id("_submit")).click();*/
-        LoginPage.driverLogin(driver,ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
+        LoginPage.userLogin(driver,ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
         //LoadingWait.ExplicitWait(driver);
         ExplicitWaits.loadingWait(driver);
 
@@ -106,7 +106,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         /*driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("driver_password"));
         driver.findElement(By.id("_submit")).click();*/
-        LoginPage.driverLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        LoginPage.userLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
         //LoadingWait.ExplicitWait(driver);
         ExplicitWaits.loadingWait(driver);
 

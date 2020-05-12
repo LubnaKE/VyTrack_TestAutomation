@@ -1,4 +1,4 @@
-package com.vytrack.pages;
+package com.vytrack.pages.DeadPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

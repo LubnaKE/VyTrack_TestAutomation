@@ -13,6 +13,7 @@ public class ExplicitWaits {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.titleIs(expectedTitle));
 
+
     }
 
     public static void loadingWait(WebDriver driver){
