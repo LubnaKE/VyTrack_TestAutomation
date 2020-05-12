@@ -34,4 +34,15 @@ public class SingleMethods {
     }
 
 
+    public static void logout_User(WebDriver driver){
+
+        WebElement userMenu = driver.findElement(By.cssSelector(".dropdown-toggle"));
+        userMenu.click();
+        //Actions actions = new Actions(driver);
+        //actions.moveToElement(.....).perform();
+
+        driver.findElement(By.cssSelector("a[class='no-hash']")).click();
+        //ExplicitWaits.loadingWait(driver);  beklemeye gerek yok otomatik çıkıyor reflesh oluyor!!!
+    }
+
 }
