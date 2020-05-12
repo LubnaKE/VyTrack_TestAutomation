@@ -45,4 +45,9 @@ public class SingleMethods {
         //ExplicitWaits.loadingWait(driver);  beklemeye gerek yok otomatik çıkıyor reflesh oluyor!!!
     }
 
+    public static WebElement userName(WebDriver driver){
+
+        return driver.findElement(By.cssSelector(".dropdown-toggle"));
+    }
+
 }

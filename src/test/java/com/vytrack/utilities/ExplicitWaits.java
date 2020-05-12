@@ -19,9 +19,14 @@ public class ExplicitWaits {
     public static void loadingWait(WebDriver driver){
 
         // this method waits after every click for loading bar!!
-        WebElement loading = driver.findElement(By.cssSelector(".loader-mask  .loader-frame"));
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.invisibilityOfAllElements(loading));
+        // put try catch for if u dont need wait for login method // for invalid test case!!
+        try {
+            WebElement loading = driver.findElement(By.cssSelector(".loader-mask  .loader-frame"));
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.invisibilityOfAllElements(loading));
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
