@@ -112,7 +112,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
 
         //Move to mouse to Fleet Tab
         WebElement fleetTab = driver.findElement(By.xpath("//span[contains(text(),'Fleet')]"));
-        Actions actions = new Actions(driver);
+        //Actions actions = new Actions(driver);
         actions.moveToElement(fleetTab).perform();
 
         // Verify vehicleContracts is displayed from user
