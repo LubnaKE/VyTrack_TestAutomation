@@ -1,6 +1,6 @@
 package com.vytrack.tests.tasks;
 
-import com.vytrack.pages.LoginPage;
+import com.vytrack.pages.LoginPage_Tlh;
 import com.vytrack.pages.DeadPages.FleetMenuTab;
 import com.vytrack.utilities.*;
 import org.openqa.selenium.By;
@@ -54,7 +54,7 @@ public class UserStory_1_TestCase extends SetAndClosePage{
 //        4.Verify that Truck driver can reset the Grid by click on Grid setting
 
         // Driver login home page
-        LoginPage.userLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
         String dashboardTitle= driver.getTitle();
 
         // waite for loading  circle

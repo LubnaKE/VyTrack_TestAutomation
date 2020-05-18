@@ -1,9 +1,7 @@
 package com.vytrack.tests.smoke_tests;
 
-import com.vytrack.pages.LoginPage;
-import com.vytrack.pages.DeadPages.NavigeteTo;
+import com.vytrack.pages.LoginPage_Tlh;
 import com.vytrack.pages.SetAndClosePage;
-import com.vytrack.pages.DeadPages.Verify_Title_Page;
 import com.vytrack.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
@@ -17,7 +15,7 @@ public class MenuOptionsTest extends SetAndClosePage {
 
         //TEST CASE:
         //1. Login to Vytrack as a driver
-        LoginPage.userLogin(driver, ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
 
 
         //2. Navigate to Fleet->Vehicles
@@ -50,7 +48,7 @@ public class MenuOptionsTest extends SetAndClosePage {
 
         //TEST CASE:
         //1. Login to Vytrack as a Store Manager
-        LoginPage.userLogin(driver, ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
 
 
         //2. Navigate to Dashboards and verify page title & page name

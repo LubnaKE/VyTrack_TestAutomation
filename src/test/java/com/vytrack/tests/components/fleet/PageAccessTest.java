@@ -1,9 +1,8 @@
 package com.vytrack.tests.components.fleet;
 
-import com.vytrack.pages.LoginPage;
+import com.vytrack.pages.LoginPage_Tlh;
 import com.vytrack.pages.SetAndClosePage;
 import com.vytrack.utilities.ConfigurationReader;
-import com.vytrack.utilities.SingleMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -18,7 +17,7 @@ public class PageAccessTest extends SetAndClosePage {
 
         //TEST CASE
         //1. Login to Vytrack as a store manager
-        LoginPage.userLogin(driver, ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
 
 
         //2. Verify that you can access Vehicle contracts page
@@ -34,7 +33,7 @@ public class PageAccessTest extends SetAndClosePage {
 
         //TEST CASE
         //1. Login to Vytrack as a sales manager
-        LoginPage.userLogin(driver, ConfigurationReader.get("salesmanager_username"),ConfigurationReader.get("salesmanager_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("salesmanager_username"),ConfigurationReader.get("salesmanager_password"));
 
 
         //2. Verify that you can access Vehicle contracts page
@@ -50,7 +49,7 @@ public class PageAccessTest extends SetAndClosePage {
 
         //TEST CASE
         //1. Login to Vytrack as a driver
-        LoginPage.userLogin(driver, ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
 
 
         //2. Verify that you cannot access Vehicle contracts page

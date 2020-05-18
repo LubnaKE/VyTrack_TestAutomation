@@ -1,9 +1,8 @@
 package com.vytrack.tests.tasks;
 
-import com.vytrack.pages.LoginPage;
+import com.vytrack.pages.LoginPage_Tlh;
 import com.vytrack.pages.SetAndClosePage;
 import com.vytrack.utilities.*;
-import com.vytrack.utilities.DeadUtilities.LoadingWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -70,7 +69,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
        /* driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("storemanager_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("storemanager_password"));
         driver.findElement(By.id("_submit")).click();*/
-        LoginPage.userLogin(driver,ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
         //LoadingWait.ExplicitWait(driver);
         ExplicitWaits.loadingWait(driver);
 
@@ -106,7 +105,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         /*driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
         driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("driver_password"));
         driver.findElement(By.id("_submit")).click();*/
-        LoginPage.userLogin(driver,ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
+        LoginPage_Tlh.userLogin(ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
         //LoadingWait.ExplicitWait(driver);
         ExplicitWaits.loadingWait(driver);
 
