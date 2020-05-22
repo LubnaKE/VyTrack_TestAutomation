@@ -15,7 +15,7 @@ public abstract class BasePage {
 
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
-    protected WebElement loaderMask;
+    protected static WebElement loaderMask;
 
     @FindBy(css = "h1[class='oro-subtitle']")
     public WebElement pageSubTitle;
@@ -50,7 +50,7 @@ public abstract class BasePage {
      * NoSuchElementException will be handled  bu try/catch block
      * Thus, we can continue in any case.
      */
-    public void waitUntilLoaderScreenDisappear() {
+    public static void waitUntilLoaderScreenDisappear() {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
             wait.until(ExpectedConditions.invisibilityOf(loaderMask));

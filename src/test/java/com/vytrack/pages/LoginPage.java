@@ -1,5 +1,7 @@
 package com.vytrack.pages;
 
+
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -23,7 +25,7 @@ public class LoginPage {
 
     @FindBys//if all of the m true turn , and && var yani
             ({@FindBy(id = "prependedInput2"),
-              @FindBy(name = "_passwords"),
+              //@FindBy(name = "_password"),
             })
     public WebElement passwordInput;
 
@@ -36,4 +38,28 @@ public class LoginPage {
         passwordInput.sendKeys(passwordStr);
         loginBtn.click();
     }
+
+    public void loginAsDriver(){
+        String username = ConfigurationReader.get("driver_username");
+        String password = ConfigurationReader.get("driver_password");
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginBtn.click();
+
+    }
+
+
+    public void loginAs(String user){
+        String username = ConfigurationReader.get(user+"_username");
+        String password = ConfigurationReader.get(user+"_password");
+
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginBtn.click();
+
+        BasePage.waitUntilLoaderScreenDisappear();
+    }
+
+
+
 }

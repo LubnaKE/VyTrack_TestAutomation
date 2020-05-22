@@ -8,8 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExplicitWaits {
 
-    public static void titleWait(WebDriver driver, String expectedTitle){
+    public static void titleWait( String expectedTitle){
 
+        WebDriver driver = Driver.get();
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.titleIs(expectedTitle));
 

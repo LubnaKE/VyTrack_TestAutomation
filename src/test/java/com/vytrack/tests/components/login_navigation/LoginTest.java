@@ -23,17 +23,17 @@ public class LoginTest extends SetAndClosePage {
 
         //2. Verify name of the store manager is displayed on top right
         //WebElement userName= driver.findElement(By.cssSelector(".dropdown-toggle"));  bunu utilities e taşıdık!! log out olunca bu elemente ulaşım tekrar olmuyor hata veriyor !!!
-        String storemanagerName= userName(driver).getText();
+        String storemanagerName= userName().getText();
         //System.out.println("storemanagerName = " + storemanagerName);
-        Assert.assertTrue( userName(driver).isDisplayed());
+        Assert.assertTrue( userName().isDisplayed());
 
 
         //3. Verify Dashboad page is open
-        verify_Title_PageName(driver, "Dashboard", "Dashboard");
+        verify_Title_PageName( "Dashboard", "Dashboard");
 
 
         //4. Log out
-        logout_User(driver);
+        logout_User();
 
 
         //5. Login to Vytrack as a sales manager
@@ -41,16 +41,16 @@ public class LoginTest extends SetAndClosePage {
 
 
        //6. Verify Dashboad page is open
-        verify_Title_PageName(driver, "Dashboard", "Dashboard");
+        verify_Title_PageName( "Dashboard", "Dashboard");
 
 
         //7. A different name should be displayed on top right
-        String salesmanagerName = userName(driver).getText();
+        String salesmanagerName = userName().getText();
         Assert.assertNotEquals(storemanagerName,salesmanagerName);
 
 
         //8. Log out
-        logout_User(driver);
+        logout_User();
 
 
         //9. Login to Vytrack as a driver
@@ -58,11 +58,11 @@ public class LoginTest extends SetAndClosePage {
 
 
         //10. Verify Dashboad page is open
-        verify_Title_PageName(driver, "Dashboard", "Quick Launchpad");
+        verify_Title_PageName( "Dashboard", "Quick Launchpad");
 
 
         //11. A different name should be displayed on top right
-        String driverName = userName(driver).getText();
+        String driverName = userName().getText();
         Assert.assertNotEquals(driverName,salesmanagerName);
 
     }

@@ -19,27 +19,27 @@ public class MenuOptionsTest extends SetAndClosePage {
 
 
         //2. Navigate to Fleet->Vehicles
-        navigateTo_Module_Page(driver,"Fleet", "Vehicles");
+        navigateTo_Module_Page("Fleet", "Vehicles");
             //verify page title & page name
-        verify_Title_PageName(driver,"Car - Entities - System - Car - Entities - System", "Cars");
+        verify_Title_PageName("Car - Entities - System - Car - Entities - System", "Cars");
 
 
         //3. Navigate to Customers->Accounts
-        navigateTo_Module_Page(driver,"Customers", "Accounts");
+        navigateTo_Module_Page("Customers", "Accounts");
             //verify page title & page name
-        verify_Title_PageName(driver,"Accounts - Customers", "Accounts");
+        verify_Title_PageName("Accounts - Customers", "Accounts");
 
 
         //4. Navigate to Customers->Contacts
-        navigateTo_Module_Page(driver,"Customers", "Contacts");
+        navigateTo_Module_Page("Customers", "Contacts");
             //verify page title & page name
-        verify_Title_PageName(driver,"Contacts - Customers", "Contacts");
+        verify_Title_PageName("Contacts - Customers", "Contacts");
 
 
         //5. Navigate to Activities->Calendar Events
-        navigateTo_Module_Page(driver,"Activities", "Calendar Events");
+        navigateTo_Module_Page("Activities", "Calendar Events");
             //verify page title & page name
-        verify_Title_PageName(driver,"Calendar Events - Activities", "Calendar Events");
+        verify_Title_PageName("Calendar Events - Activities", "Calendar Events");
 
     }
 
@@ -52,43 +52,43 @@ public class MenuOptionsTest extends SetAndClosePage {
 
 
         //2. Navigate to Dashboards and verify page title & page name
-        navigateTo_Module_Page(driver,"Dashboards", "Dashboard");
-        verify_Title_PageName(driver,"Dashboard - Dashboards", "Dashboard" );
+        navigateTo_Module_Page("Dashboards", "Dashboard");
+        verify_Title_PageName("Dashboard - Dashboards", "Dashboard" );
 
 
         //3. Navigate to Fleet->Vehicles
-        navigateTo_Module_Page(driver,"Fleet", "Vehicles");
+        navigateTo_Module_Page("Fleet", "Vehicles");
         //verify page title & page name
-        verify_Title_PageName(driver,"All - Car - Entities - System - Car - Entities - System", "All Cars");
+        verify_Title_PageName("All - Car - Entities - System - Car - Entities - System", "All Cars");
 
 
         //4. Navigate to Customers->Accounts
-        navigateTo_Module_Page(driver,"Customers", "Accounts");
+        navigateTo_Module_Page("Customers", "Accounts");
         //verify page title & page name
-        verify_Title_PageName(driver,"Accounts - Customers", "Accounts");
+        verify_Title_PageName("Accounts - Customers", "Accounts");
 
 
         //5. Navigate to Customers->Contacts
-        navigateTo_Module_Page(driver,"Customers", "Contacts");
+        navigateTo_Module_Page("Customers", "Contacts");
         //verify page title & page name
-        verify_Title_PageName(driver,"All - Contacts - Customers", "All Contacts");
+        verify_Title_PageName("All - Contacts - Customers", "All Contacts");
 
 
         //6. Navigate to Sales->Opportunities,
-        navigateTo_Module_Page(driver,"Sales", "Opportunities");
+        navigateTo_Module_Page("Sales", "Opportunities");
         //verify page title & page name
-        verify_Title_PageName(driver,"Open Opportunities - Opportunities - Sales", "Open Opportunities");
+        verify_Title_PageName("Open Opportunities - Opportunities - Sales", "Open Opportunities");
 
 
         //7. Navigate to Activities->Calls,
-        navigateTo_Module_Page(driver,"Activities", "Calls");
+        navigateTo_Module_Page("Activities", "Calls");
         //verify page title & page name
-        verify_Title_PageName(driver,"All - Calls - Activities", "All Calls");
+        verify_Title_PageName("All - Calls - Activities", "All Calls");
 
 
         //8. Navigate to Activities->Calendar Events,
-        navigateTo_Module_Page(driver,"Activities", "Calendar Events");
+        navigateTo_Module_Page("Activities", "Calendar Events");
         //verify page title & page name
-        verify_Title_PageName(driver,"All - Calendar Events - Activities", "All Calendar Events");
+        verify_Title_PageName("All - Calendar Events - Activities", "All Calendar Events");
     }
 }

@@ -21,8 +21,8 @@ public class PageAccessTest extends SetAndClosePage {
 
 
         //2. Verify that you can access Vehicle contracts page
-        navigateTo_Module_Page(driver,"Fleet", "Vehicle Contracts");
-        verify_Title_PageName(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System", "All Vehicle Contract");
+        navigateTo_Module_Page("Fleet", "Vehicle Contracts");
+        verify_Title_PageName("All - Vehicle Contract - Entities - System - Car - Entities - System", "All Vehicle Contract");
 
     }
 
@@ -37,8 +37,8 @@ public class PageAccessTest extends SetAndClosePage {
 
 
         //2. Verify that you can access Vehicle contracts page
-        navigateTo_Module_Page(driver,"Fleet", "Vehicle Contracts");
-        verify_Title_PageName(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System", "All Vehicle Contract");
+        navigateTo_Module_Page("Fleet", "Vehicle Contracts");
+        verify_Title_PageName("All - Vehicle Contract - Entities - System - Car - Entities - System", "All Vehicle Contract");
 
     }
 
@@ -53,8 +53,8 @@ public class PageAccessTest extends SetAndClosePage {
 
 
         //2. Verify that you cannot access Vehicle contracts page
-        navigateTo_Module_Page(driver,"Fleet", "Vehicle Contracts");
-        verify_Title_PageName(driver,"Dashboard", "Quick Launchpad");
+        navigateTo_Module_Page("Fleet", "Vehicle Contracts");
+        verify_Title_PageName("Dashboard", "Quick Launchpad");
 
 
         //3. Message You do not have permission to perform this action. should be displayed

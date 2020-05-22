@@ -92,7 +92,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
        /* WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.titleIs("All - Vehicle Contract - Entities - System - Car - Entities - System"));*/
        //TitleWait.ExplicitWait(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System");
-        ExplicitWaits.titleWait(driver,"All - Vehicle Contract - Entities - System - Car - Entities - System");
+        ExplicitWaits.titleWait("All - Vehicle Contract - Entities - System - Car - Entities - System");
         //Verify page can accesseable from authorized user
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
