@@ -59,12 +59,12 @@ public class UserStory_1_TestCase extends SetAndClosePage{
 
         // waite for loading  circle
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
 
         // click module and wait for loading  circle and verify title change
         FleetMenuTab.clickModule(driver,"Vehicle");
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         String moduleTitle = driver.getTitle();
 
         Assert.assertNotEquals(dashboardTitle,moduleTitle);
@@ -102,7 +102,7 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         String firstRowPlate = firstRow_Column.getText();
         firstRow_Column.click();
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
 
         String actualPlate = driver.findElement(By.xpath("(//h5/../div/div)[1]")).getText();  //chil -- parent -- child
         Assert.assertEquals(actualPlate,firstRowPlate);
@@ -119,7 +119,7 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         //driver.findElement(By.xpath("(//a[@href=\"javascript: void(0);\"])[2]")).click();
         driver.findElement(By.partialLinkText("Add Event")).click(); //ATTENTION, direk link ismi kullanma, boşluk vb var!!
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
 
         // add event
         String EventTitle = "Automation Event By Tlh";
@@ -143,7 +143,7 @@ public class UserStory_1_TestCase extends SetAndClosePage{
         //verify that event can see in activty tab
         driver.navigate().refresh();  // after refrsh page we can see new event!!!!!!
        // LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         String actualEventTitle= driver.findElement(By.tagName("strong")).getText();
         Assert.assertEquals(actualEventTitle,EventTitle);
 
@@ -153,10 +153,10 @@ public class UserStory_1_TestCase extends SetAndClosePage{
 
         driver.navigate().back();
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         driver.findElement(By.xpath("(//*[@class='fa-refresh'])[2]")).click();
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         // bunun testi nasıl olur bi açıklama yok ! istersen settings den id ekle sonra restele eski haline döner
 
 

@@ -18,7 +18,7 @@ public class SingleMethods {
       //  WebElement page = driver.findElement(By.xpath("//span[contains(text(),'"+pageName+"')]"));
         WebElement page = driver.findElement(By.xpath("//span[.='"+pageName+"']"));
         page.click();
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
     }
 
     public static void verify_Title_PageName( String expectedTitle, String expectedPageName ) {

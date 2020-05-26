@@ -16,6 +16,6 @@ public class NavigeteTo {
         WebElement vehiclemodule = driver.findElement(By.xpath("//span[contains(text(),'"+pageName+"')]"));
         //Assert.assertTrue(vehicleContracts.isDisplayed(),"Fleet tab dropdown displayed");
         vehiclemodule.click();
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
     }
 }

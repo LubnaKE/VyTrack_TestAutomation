@@ -18,6 +18,28 @@ import java.util.List;
 
 
 public class BrowserUtils {
+
+    // to find elemnt is clicable or not on html
+    public static boolean isClickable(WebElement webe)
+    {
+        try
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
+             wait.until(ExpectedConditions.elementToBeClickable(webe));
+
+         WebElement element = new WebDriverWait(Driver.get(), 10).until(ExpectedConditions.elementToBeClickable(webe));
+//       ((JavascriptExecutor)Driver.get()).executeScript("arguments[0].click();", webe);
+            return true;
+        }
+        catch (Exception  e)
+        {
+            return false;
+        }
+    }
+
+
+
+
     /*
      * takes screenshot
      * @param name

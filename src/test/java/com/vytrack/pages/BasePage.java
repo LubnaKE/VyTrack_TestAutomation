@@ -2,6 +2,7 @@ package com.vytrack.pages;
 
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.ExplicitWaits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,10 +11,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public abstract class BasePage {
 
-    @FindBy(css = "div[class='loader-mask shown']")
+    @FindBy(css = "div[class='loader-mask shown']")  ////*[@class='loader-frame'])[2]
     @CacheLookup
     protected static WebElement loaderMask;
 
@@ -52,7 +54,7 @@ public abstract class BasePage {
      */
     public static void waitUntilLoaderScreenDisappear() {
         try {
-            WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
+            WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
             wait.until(ExpectedConditions.invisibilityOf(loaderMask));
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,5 +110,30 @@ public abstract class BasePage {
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
     }
+
+
+    // to find elemnt is clicable or not on html via using loader frame
+    public static boolean isClickableViaLoader(WebElement element)
+    {
+        // tam çalışmıyor loader i displayed yakalayamıyoruz !!??
+        try
+        {
+            element.click();
+            //waitUntilLoaderScreenDisappear();
+            //ExplicitWaits.loadingWait();
+            System.out.println("displayedddddddddddd: " + loaderMask.isDisplayed());
+          //  Assert.assertTrue(loaderMask.isDisplayed());
+            waitUntilLoaderScreenDisappear();
+            return true;
+        }
+        catch (Exception  e)
+        {
+            return false;
+        }
+    }
+
+
+
+
 
 }

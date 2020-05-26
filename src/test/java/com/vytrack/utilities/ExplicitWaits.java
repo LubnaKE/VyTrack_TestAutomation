@@ -17,8 +17,8 @@ public class ExplicitWaits {
 
     }
 
-    public static void loadingWait(WebDriver driver){
-
+    public static void loadingWait(){
+        WebDriver driver= Driver.get();
         // this method waits after every click for loading bar!!
         // put try catch for if u dont need wait for login method // for invalid test case!!
         try {

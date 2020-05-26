@@ -71,7 +71,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         driver.findElement(By.id("_submit")).click();*/
         LoginPage_Tlh.userLogin(ConfigurationReader.get("storemanager_username"),ConfigurationReader.get("storemanager_password"));
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
 
         //Move to mouse to Fleet Tab
         WebElement fleetTab = driver.findElement(By.xpath("//span[contains(text(),'Fleet')]"));
@@ -85,7 +85,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         // Click vehicleContracts
         vehicleContracts.click();
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
 
         // wait for title update!!
@@ -107,7 +107,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         driver.findElement(By.id("_submit")).click();*/
         LoginPage_Tlh.userLogin(ConfigurationReader.get("driver_username"),ConfigurationReader.get("driver_password"));
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
 
         //Move to mouse to Fleet Tab
         WebElement fleetTab = driver.findElement(By.xpath("//span[contains(text(),'Fleet')]"));
@@ -122,7 +122,7 @@ public class UserStroy_7_TestCase extends SetAndClosePage {
         // Click vehicleContracts and Verify page can NOT accesseable from UNauthorized user
         vehicleContracts.click();
         //LoadingWait.ExplicitWait(driver);
-        ExplicitWaits.loadingWait(driver);
+        ExplicitWaits.loadingWait();
         String expectedTitle = exptitle;
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
