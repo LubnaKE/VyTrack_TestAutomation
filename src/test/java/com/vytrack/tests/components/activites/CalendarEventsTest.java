@@ -1,4 +1,4 @@
-package com.vytrack.tests.tasks;
+package com.vytrack.tests.components.activites;
 
 import com.vytrack.pages.BasePage;
 import com.vytrack.pages.CalendarEventsPage;
@@ -12,7 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sun.java2d.pipe.AAShapePipe;
 
-public class VytrackHW extends TestBase {
+public class CalendarEventsTest extends TestBase {
 
     // Test DATA:
     // Environment: https://qa1.vytrack.com
@@ -36,7 +36,7 @@ public class VytrackHW extends TestBase {
         calendarEventsPage.waitUntilLoaderScreenDisappear();
     }
 
-    @Test(description = "TestCase #1")
+    @Test(priority = 0, description = "TestCase #1")
     public void calendarEventsOptionTest() {
 
         extentLogger = report.createTest("TestCase #1: Calendar Events Option Display");
@@ -46,12 +46,11 @@ public class VytrackHW extends TestBase {
         extentLogger.info("Verify subtitle Option is displayed");
         Assert.assertTrue(calendarEventsPage.options.isDisplayed(), "Option is displayed");
 
-
         extentLogger.pass("PASS: TestCase #1 Calendar Events Option Display ");
     }
 
 
-    @Test(description = "TestCase #2")
+    @Test(priority = 1, description = "TestCase #2")
     public void calendarEventsPageNumberTest() {
 
         extentLogger = report.createTest("TestCase #2:Calendar Events Option Page Number Verification");
@@ -65,7 +64,7 @@ public class VytrackHW extends TestBase {
     }
 
 
-    @Test(description = "TestCase #3")
+    @Test(priority = 2, description = "TestCase #3")
     public void calendarEventsViewPerPageTest() {
 
         extentLogger = report.createTest("TestCase #3: Calendar Events View Per page num Verification");
@@ -82,7 +81,7 @@ public class VytrackHW extends TestBase {
     }
 
 
-    @Test(description = "TestCase #4")
+    @Test(priority = 3, description = "TestCase #4")
     public void calendarEventsNumberOfCalendarEventsTest() {
 
         extentLogger = report.createTest("TestCase #4: Number of calendar events Verification");
@@ -117,7 +116,7 @@ public class VytrackHW extends TestBase {
 
 
 
-    @Test(description = "TestCase #5")
+    @Test(priority = 4, description = "TestCase #5")
     public void calendarEventsSelectAllEventsTest() {
 
         extentLogger = report.createTest("TestCase #5: All calendar events is selected Verification");
@@ -139,7 +138,7 @@ public class VytrackHW extends TestBase {
 
 
 
-    @Test(description = "TestCase #6")
+    @Test(priority = 5, description = "TestCase #6")
     public void calendarEventsMeetingVerifyTest() {
 
         extentLogger = report.createTest("TestCase #6: Testers Meeting data Verification");

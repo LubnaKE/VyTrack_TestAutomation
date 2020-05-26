@@ -1,7 +1,7 @@
 package com.vytrack.tests.tasks;
 
-import com.vytrack.pages.LoginPage_Tlh;
-import com.vytrack.pages.SetAndClosePage;
+import com.vytrack.pages.DeadPages.LoginPage_Tlh;
+import com.vytrack.pages.DeadPages.SetAndClosePage;
 import com.vytrack.utilities.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

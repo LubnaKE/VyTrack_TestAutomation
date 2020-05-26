@@ -1,7 +1,7 @@
 package com.vytrack.tests.smoke_tests;
 
-import com.vytrack.pages.LoginPage_Tlh;
-import com.vytrack.pages.SetAndClosePage;
+import com.vytrack.pages.DeadPages.LoginPage_Tlh;
+import com.vytrack.pages.DeadPages.SetAndClosePage;
 import com.vytrack.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 

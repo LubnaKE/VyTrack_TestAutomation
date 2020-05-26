@@ -1,6 +1,6 @@
 package com.vytrack.tests.tasks;
 
-import com.vytrack.pages.LoginPage_Tlh;
+import com.vytrack.pages.DeadPages.LoginPage_Tlh;
 import com.vytrack.pages.DeadPages.FleetMenuTab;
 import com.vytrack.utilities.*;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.vytrack.pages.SetAndClosePage;
+import com.vytrack.pages.DeadPages.SetAndClosePage;
 
 public class UserStory_1_TestCase extends SetAndClosePage{
 

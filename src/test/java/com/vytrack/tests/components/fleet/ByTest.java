@@ -1,9 +1,7 @@
 package com.vytrack.tests.components.fleet;
 
 import com.vytrack.pages.LoginPage;
-import com.vytrack.pages.LoginPage_Tlh;
-import com.vytrack.pages.SetAndClosePage;
-import com.vytrack.utilities.Driver;
+import com.vytrack.pages.DeadPages.SetAndClosePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriverException;
