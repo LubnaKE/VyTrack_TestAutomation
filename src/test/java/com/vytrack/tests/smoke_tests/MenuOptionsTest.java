@@ -5,7 +5,7 @@ import com.vytrack.pages.DeadPages.SetAndClosePage;
 import com.vytrack.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
-import static com.vytrack.utilities.SingleMethods.*;
+import static com.vytrack.utilities.DeadUtilities.SingleMethods.*;
 
 
 public class MenuOptionsTest extends SetAndClosePage {

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.vytrack.utilities.SingleMethods.*;
+import static com.vytrack.utilities.DeadUtilities.SingleMethods.*;
 
 
 public class LoginTest extends SetAndClosePage {

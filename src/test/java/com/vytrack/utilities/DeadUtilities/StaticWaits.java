@@ -1,4 +1,4 @@
-package com.vytrack.utilities;
+package com.vytrack.utilities.DeadUtilities;
 
 public class StaticWaits {
 

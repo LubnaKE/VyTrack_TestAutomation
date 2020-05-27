@@ -75,7 +75,7 @@ public class CalendarEventsPage extends BasePage {
 
     public int getRowsNumbers(){
         BrowserUtils.waitFor(1);
-        return Driver.get().findElements(By.cssSelector("table tr.grid-row")).size();
+        return Driver.get().findElements(By.cssSelector("table>tbody tr.grid-row")).size();
     }
 
     public int getTotalRecords(){

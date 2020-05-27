@@ -2,7 +2,7 @@ package com.vytrack.pages.DeadPages;
 
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
-import com.vytrack.utilities.StaticWaits;
+import com.vytrack.utilities.DeadUtilities.StaticWaits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;

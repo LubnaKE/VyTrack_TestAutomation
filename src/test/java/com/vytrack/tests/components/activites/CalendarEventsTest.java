@@ -187,6 +187,8 @@ public class CalendarEventsTest extends TestBase {
         Assert.assertTrue(Driver.get().findElement(By.xpath("//*[.='"+expectedAllDayEvent+"']")).isDisplayed());
 
          extentLogger.pass("PASS: TestCase #6: Testers Meeting data Verification");
+
+
     }
 
 }

@@ -1,7 +1,6 @@
 package com.vytrack.pages.DeadPages;
 
-import com.vytrack.utilities.ExplicitWaits;
-import com.vytrack.utilities.StaticWaits;
+import com.vytrack.utilities.DeadUtilities.ExplicitWaits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
