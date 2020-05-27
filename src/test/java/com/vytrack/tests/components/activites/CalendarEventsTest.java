@@ -146,8 +146,6 @@ public class CalendarEventsTest extends TestBase {
         testCaseSameLines();
 
         extentLogger.info("Verify that given data is displayed");
-
-
         String expectedTitle = "Testers meeting";
         String expectedStartDate= "Nov 27, 2019, 9:30 AM";
         String expectedDescripton= "This is a a weekly testers meeting";

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Vytrack Automation" verbose="10">
+    <test name="Vytrack Smoke Test">
+        <parameter name="env" value="qa2_"></parameter>
+        <classes>
+            <class name="com.vytrack.tests.smoke_tests.MenuOptionsTest"></class>
+        </classes>
+    </test>
+    <test name="Vytrack Smoke Test">
+        <parameter name="env" value="qa3_"></parameter>
+        <classes>
+            <class name="com.vytrack.tests.smoke_tests.MenuOptionsTest"></class>
+        </classes>
+    </test>
+</suite>
