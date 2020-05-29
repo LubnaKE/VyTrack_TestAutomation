@@ -19,6 +19,21 @@ import java.util.List;
 
 public class BrowserUtils {
 
+    public static boolean doesElementExist(By locator){
+        try{
+            Driver.get().findElement(locator).getText();
+            return true;
+        }catch (NoSuchElementException e){
+//            logger.warn("Element does not exist ->" + element);
+            return false;
+        }
+    }
+
+
+
+
+
+
     // to find elemnt is clicable or not on html
     public static boolean isClickable(WebElement webe)
     {
@@ -26,6 +41,7 @@ public class BrowserUtils {
         {
             WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
              wait.until(ExpectedConditions.elementToBeClickable(webe));
+           //  wait.until(ExpectedConditions.)
 
          WebElement element = new WebDriverWait(Driver.get(), 10).until(ExpectedConditions.elementToBeClickable(webe));
 //       ((JavascriptExecutor)Driver.get()).executeScript("arguments[0].click();", webe);

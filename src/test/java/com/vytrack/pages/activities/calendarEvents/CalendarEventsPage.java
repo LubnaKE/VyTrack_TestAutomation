@@ -1,5 +1,6 @@
-package com.vytrack.pages;
+package com.vytrack.pages.activities.calendarEvents;
 
+import com.vytrack.pages.BasePage;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.By;

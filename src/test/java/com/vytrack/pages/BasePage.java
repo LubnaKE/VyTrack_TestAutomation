@@ -3,6 +3,7 @@ package com.vytrack.pages;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -122,6 +123,8 @@ public abstract class BasePage {
             System.out.println("displayedddddddddddd: " + loaderMask.isDisplayed());
           //  Assert.assertTrue(loaderMask.isDisplayed());
             waitUntilLoaderScreenDisappear();
+
+
             return true;
         }
         catch (Exception  e)

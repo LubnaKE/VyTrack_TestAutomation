@@ -53,11 +53,16 @@ public class TestBase {
     @BeforeMethod
     @Parameters("env")
     public void setUpMethod(@Optional String env){
+
         driver = Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         actions = new Actions(driver);
         wait = new WebDriverWait(driver,10);
+        if (env==null){
+            driver.get(ConfigurationReader.get("url"));
+            return;
+        }
         driver.get(ConfigurationReader.get(env+"url"));
 
     }
